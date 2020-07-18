@@ -1,5 +1,6 @@
 #include<stdio.h>
 
+
 struct ListNode
 {
 	int val;
@@ -18,7 +19,6 @@ int GetLength(struct ListNode *head)
 	return len;
 }
 
-
 struct ListNode* middleNode(struct ListNode *head)
 {
 	if (head == NULL || head->next == NULL)
@@ -33,3 +33,6 @@ struct ListNode* middleNode(struct ListNode *head)
 	}
 	return p;
 }
+
+
+ 

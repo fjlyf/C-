@@ -14,6 +14,7 @@ MinStack* minStackCreate()
 	return pmst;
 }
 
+
 void minStackPush(MinStack *pmst, int x)
 {
 	LinkStackPush(&(pmst->st), x);

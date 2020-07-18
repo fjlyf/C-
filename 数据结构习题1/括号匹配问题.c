@@ -1,6 +1,5 @@
 #include"stack.h"
 
-
 //¿®∫≈∆•≈‰Œ Ã‚
 bool isValid(char *s)
 {

@@ -6,6 +6,7 @@ typedef struct
 	LinkStack outstack;
 }MyQueue;
 
+
 //创建队列
 MyQueue* myQueueCreate()
 {
