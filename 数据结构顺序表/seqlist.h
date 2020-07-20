@@ -144,20 +144,20 @@ void SeqListInsertVal(SeqList *pst, ElemType x)
 		return;
 	}
 	//从前往后比较：先比较找到位置再插入
-	/*
+	
 	int pos = 0;
 	int i = 0;
 	for (i = 0; i < pst->size; ++i)
-	{
-		if (x < pst->base[i])
-		{
-			pos = i;
-			break;
-		}
-	}
-	if (i >= pst->size)
-		pos = i;
-	SeqListInsertPos(pst, pos, x);*/
+//	{
+//		if (x < pst->base[i])
+//		{
+///			pos = i;
+//			break;
+//		}
+//	}
+//	if (i >= pst->size)
+//		pos = i;
+//	SeqListInsertPos(pst, pos, x);
 	//从后往前比较:边比较边移动
 	int end = pst->size;
 	while (end > 0 && x < pst->base[end - 1])
@@ -223,11 +223,11 @@ int SeqListFindVal(SeqList *pst, ElemType key)
 			return mid;
 	}
 	//直接查找
-	/*for (int i = 0; i < pst->size; ++i)
-	{
-		if (key == pst->base[i])
-			return i;
-	}*/
+//	for (int i = 0; i < pst->size; ++i)
+//	{
+//		if (key == pst->base[i])
+//			return i;
+//	}
 		return -1;
 	   
 }

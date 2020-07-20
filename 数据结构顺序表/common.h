@@ -16,3 +16,4 @@ void Swap(ElemType *a, ElemType *b)
 }
 
 #endif /*_COMMON_H*/
+
