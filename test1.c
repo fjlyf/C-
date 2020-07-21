@@ -36,7 +36,7 @@ int main()
 	return 0;
 }
 
-////方法二
+//方法二
 int main()
 {
 	int a = 0;
