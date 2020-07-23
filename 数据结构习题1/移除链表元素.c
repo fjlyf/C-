@@ -1,25 +1,22 @@
-#include<stdio.h>
+#include"list.h"
 
 
-struct ListNode
+
+void RemoveAll(SList *plist, int val)
 {
-	int val;
-	struct ListNode *next;
-};
-
-struct ListNode* removeElements(struct ListNode* head, int val)
-{
-	if (head == NULL)
-		return NULL;
-	struct ListNode *p = head;
-	struct ListNode *prev = NULL;
+	assert(plist != NULL);
+	SListNode *p = plist->head;
+	SListNode *prev = NULL;
+	if (p== NULL)
+		return;
 	while (p != NULL)
 	{
-		if (p->val == val)
+		if (p->data == val)
 		{
-			struct ListNode *next = p->next;
+			SListNode *next = p->next;   //保存p->next
+			//第一个节点值为val
 			if (prev == NULL)
-				head = head->next;
+				plist->head = p->next;
 			else
 				prev->next = p->next;
 			free(p);
@@ -31,6 +28,25 @@ struct ListNode* removeElements(struct ListNode* head, int val)
 			p = p->next;
 		}
 	}
-	return head;
+	return;
+}
+
+
+
+void main()
+{
+	SList p;
+	SListInit(&p);
+	SListPushFront(&p, 1);
+	SListPushFront(&p, 2);
+	SListPushFront(&p, 3);
+	SListPushFront(&p, 6);
+	SListPushFront(&p, 4);
+	SListPushFront(&p, 5);
+	SListPushFront(&p, 6);
+	SListShow(&p);
+	RemoveAll(&p, 6);
+	SListShow(&p);
+
 }
 
