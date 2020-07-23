@@ -224,8 +224,11 @@ typedef struct LinkQueue
 void LinkQueueInit(LinkQueue *pq);//初始化
 void LinkQueueEnQue(LinkQueue *pq,ElemType x);//入队
 void LinkQueueDeQue(LinkQueue *pq);//出队
+bool LinkQueueEmpty(LinkQueue *pq);//判空
 ElemType LinkQueueFront(LinkQueue *pq);//取队头元素
+ElemType LinkQueueBack(LinkQueue *pq);//取队尾元素
 void LinkQueuePrint(LinkQueue *pq);//打印
+void LinkQueueDestory(LinkQueue *pq);//摧毁
 
 /////////////////////////////////////////
 //函数接口实现
@@ -262,10 +265,27 @@ void LinkQueueDeQue(LinkQueue *pq)
 	}
 }
 
+bool LinkQueueEmpty(LinkQueue *pq)
+{
+	assert(pq != NULL);
+	return pq->front == NULL;
+}
+
 ElemType LinkQueueFront(LinkQueue *pq)
 {
 	assert(pq != NULL);
 	if (pq->front==pq->rear)
+	{
+		printf("链式队列已空，不能取队头元素.\n");
+		return;
+	}
+	return pq->rear->data;
+}
+
+ElemType LinkQueueBack(LinkQueue *pq)
+{
+	assert(pq != NULL);
+	if (pq->front == pq->rear)
 	{
 		printf("链式队列已空，不能取队头元素.\n");
 		return;
@@ -285,5 +305,16 @@ void LinkQueuePrint(LinkQueue *pq)
 	printf("\n");
 }
 
+void LinkQueueDestory(LinkQueue *pq)
+{
+	assert(pq != NULL);
+	LinkQueueNode *p = pq->front;
+	while (p != NULL)
+	{
+		pq->front = p->link;
+		free(p);
+		pq->front = pq->rear = NULL;
+	}
+}
 
 #endif /*_QUEUE_H_*/
