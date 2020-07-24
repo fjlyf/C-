@@ -47,7 +47,6 @@ void game()
 	}
 }
 
-
 int main()
 {
 	int enter = 0;
