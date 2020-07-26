@@ -3,7 +3,6 @@
 #include"stack.h"
 #include"queue.h"
 
-
 //链式队列主函数
 void main()
 {

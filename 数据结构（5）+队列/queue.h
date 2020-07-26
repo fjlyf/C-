@@ -27,6 +27,7 @@ void SeqQueueEnque1(SeqQueue *psq,ElemType x);//入队（空间满时扩容）
 void SeqQueueDeque(SeqQueue *psq);//出队
 ElemType SeqQueueFront(SeqQueue *psq);//取队头元素
 void SeqQueuePrint(SeqQueue *psq);//打印
+
 //////////////////////////////////////////////////////
 //函数接口实现
 void SeqQueueInit(SeqQueue *psq)

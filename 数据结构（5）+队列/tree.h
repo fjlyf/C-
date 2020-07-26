@@ -27,7 +27,6 @@ void PreOrder(BinTree *bt);     //层次遍历
 void InOrder(BinTree *bt);      //先序遍历
 void PostOrder(BinTree *bt);    //中序遍历
 void LevelOrder(BinTree *bt);   //后序遍历
-
 //////////////////////////////////////////////////////////////////////
 //函数实现
 void BinTreeInit(BinTree *pbt)

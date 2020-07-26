@@ -2,6 +2,7 @@
 #define _LIST_H_
 
 #include"common.h"
+
 ////////////////////////////////////////////////////////
 //带头的双循环链表
 typedef struct DCListNode
