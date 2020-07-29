@@ -2,6 +2,7 @@
 #define _TREE_H_
 
 #include"common.h"
+#include<math.h>
 
 typedef struct BinTreeNode
 {
@@ -24,7 +25,7 @@ void BinTreeCreate_1(BinTreeNode **pbt);
 BinTreeNode* BinTreeCreate_2();
 void BinTreeCreateByStr(BinTree *pbt,const char *str);//通过字符串创建
 BinTreeNode* BinTreeCreateByStr_1(const char *str,int *pindex);
-//遍历
+//递归遍历
 void PreOrder(BinTree *bt);     //先序遍历
 void PreOrder_1(BinTreeNode *t);
 void InOrder(BinTree *bt);      //中序遍历
@@ -33,6 +34,8 @@ void PostOrder(BinTree *bt);    //后序遍历
 void PostOrder_1(BinTreeNode *t);
 void LevelOrder(BinTree *bt);   //层次遍历
 void LevelOrder_1(BinTreeNode *t);
+//非递归遍历
+
 //求二叉树的节点个数以及树的高度
 int BinTreeCount(BinTree *bt);
 int BinTreeCount_1(BinTreeNode *t);
@@ -49,6 +52,10 @@ BinTreeNode* BinTreeCopy_1(BinTreeNode *t);
 //判断二叉树
 bool BinTreeEqual(BinTree *bt1, BinTree *bt2);
 bool BinTreeEqual_1(BinTreeNode *t1, BinTreeNode *t2);
+bool BinTreeBalanced(BinTree *bt);     //是否为高度平衡二叉树（一个二叉树每个节点的左右两个子树的高度差的绝对值不超过1）
+bool BinTreeBalanced_1(BinTreeNode *t);
+bool BinTreeSymmetry(BinTree *bt);     //是否为镜像对称
+bool BinTreeSymmetry_1(BinTreeNode *t1, BinTreeNode *t2);
 //摧毁二叉树
 void BinTreeDestory(BinTree *bt);
 void BinTreeDestory_1(BinTreeNode *t);
@@ -267,6 +274,39 @@ bool BinTreeEqual_1(BinTreeNode *t1, BinTreeNode *t2)
 		return true;
 	return false;
 }
+
+//判断是否为平衡二叉树
+bool BinTreeBalanced(BinTree *bt)
+{
+	return BinTreeBalanced_1(bt->root);
+}
+bool BinTreeBalanced_1(BinTreeNode *t)
+{
+	if (t == NULL)
+		return true;
+	int left_h = BinTreeHeight_1(t->leftChild);
+	int right_h = BinTreeHeight_1(t->rightChild);
+	return abs(left_h - right_h) < 2 && BinTreeBalanced_1(t->leftChild) && BinTreeBalanced_1(t->rightChild);
+}
+
+//判断是否为对称二叉树
+bool BinTreeSymmetry(BinTree *bt)
+{
+	if (bt == NULL)
+		return true;
+	return BinTreeSymmetry_1(bt->root->leftChild,bt->root->rightChild);
+}
+bool BinTreeSymmetry_1(BinTreeNode *t1, BinTreeNode *t2)
+{
+	if (t1 == NULL&&t2 == NULL)
+		return true;
+	if (t1 == NULL || t2 == NULL)
+		return false;
+	return t1->data == t2->data
+		   && BinTreeSymmetry_1(t1->leftChild, t2->rightChild)
+		   && BinTreeSymmetry_1(t1->rightChild, t2->leftChild);
+}
+
 
 //摧毁二叉树
 void BinTreeDestory(BinTree *bt)
