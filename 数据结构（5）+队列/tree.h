@@ -34,8 +34,6 @@ void PostOrder(BinTree *bt);    //后序遍历
 void PostOrder_1(BinTreeNode *t);
 void LevelOrder(BinTree *bt);   //层次遍历
 void LevelOrder_1(BinTreeNode *t);
-//非递归遍历
-
 //求二叉树的节点个数以及树的高度
 int BinTreeCount(BinTree *bt);
 int BinTreeCount_1(BinTreeNode *t);
