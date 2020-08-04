@@ -38,7 +38,6 @@ int main()
 	//输出为7，因为Add(3,4)改变了原来的返回对象
 }
 
-
 /*
 //重载
 int Add(int left, int right)
