@@ -41,6 +41,7 @@ int main()
 	cout << "&ra=" << &ra << endl;
 	return 0;
 }
+
 /*
 //ÒıÓÃ
 void TestRef()
