@@ -1,6 +1,93 @@
 #include<iostream>
 using namespace std;
 
+//指针空值
+void TestPtr()
+{
+	int* p1 = NULL;
+	int* p2 = 0;
+}
+void f(int)
+{
+	cout << "f(int)" << endl;
+}
+void f(int*)
+{
+	cout << "f(int*)" << endl;
+}
+
+int main()
+{
+	f(0);
+	f(NULL);
+	f((int*)NULL);
+	return 0;
+}
+
+/*
+//for循环
+void TestFor()
+{
+	int array[] = { 1, 2, 3, 4, 5 };
+	for (auto& e:array)
+		e *= 2;
+	for (auto e:array)
+		cout << e << " ";
+}
+int main()
+{
+	TestFor();
+	return 0;
+}
+/*
+void TestFor()
+{
+	int array[] = { 1, 2, 3, 4, 5 };
+	for (int i = 0; i < sizeof(array) / sizeof(array[0]); ++i)
+		array[i] *= 2;
+	for (int* p = array; p < array + sizeof(array) / sizeof(array[0]); ++p)
+		cout << *p << endl;
+}
+
+/*
+//auto关键字
+int main()
+{
+	int x = 10;
+	auto a = &x;
+	auto* b = &x;
+	auto& c = x;
+	cout << typeid(a).name() << endl;
+	cout << typeid(b).name() << endl;
+	cout << typeid(c).name() << endl;
+
+	*a = 20;
+	*b = 30;
+	c = 40;
+	return 0;
+}
+
+/*
+int TestAuto()
+{
+	return 10;
+}
+
+int main()
+{
+	int a = 10;
+	auto b = a;
+	auto c = 'a';
+	auto d = TestAuto();
+	//typeid().name()用于输出变量类型
+	cout << typeid(b).name() << endl;
+	cout << typeid(c).name() << endl;
+	cout << typeid(d).name() << endl;
+
+	return 0;
+}
+
+/*
 //传值引用
 #include<time.h>
 struct A
@@ -37,11 +124,14 @@ int main()
 {
 	int a = 10;
 	int& ra = a;
-	cout << "&a=" << &a << endl;
-	cout << "&ra=" << &ra << endl;
+	ra = 20;
+	int* pa = &a;
+	*pa = 20;
+	return 0;
+	//cout << "&a=" << &a << endl;
+	//cout << "&ra=" << &ra << endl;
 	return 0;
 }
-
 /*
 //引用
 void TestRef()
