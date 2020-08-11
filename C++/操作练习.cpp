@@ -1,6 +1,136 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 using namespace std;
 
+//this指针
+class A
+{
+	friend class Date;
+public:
+	void PrintA()
+	{
+		cout << _a << endl;
+	}
+	void Show()
+	{
+		cout << "Show()" << endl;
+	}
+private:
+	int _a;
+};
+int main()
+{
+	A* p = NULL;
+	p->PrintA();
+	p->Show();
+}
+
+class Date
+{
+	
+public:
+	void Display()
+	{
+		cout << _year << "-" << _month << "-" << _day << endl;
+	}
+	void SetDate(int year, int month, int day)
+	{
+		_year = year;
+		_month = month;
+		_day = day;
+	}
+private:
+	int _year;
+	int _month;
+	int _day;
+};
+/*
+int main()
+{
+	Date d1, d2;
+	d1.SetDate(2020, 8, 11);
+	d2.SetDate(2020, 8, 10);
+	d1.Display();
+	d2.Display();
+	return 0;
+}
+
+/*
+//类与对象
+class Person
+{
+public:
+	void PrintPersonInfo()
+	{
+		cout << _name << "" << _gender << "" << _age << endl;
+	}
+private:
+	char _name[20];
+	char _gender[3];
+	int _age;
+};
+
+class A
+{
+public:
+	void PrintA()
+	{
+		cout << _a << endl;
+	}
+private:
+	char _a;
+};
+
+//类中既有成员变量，又有成员函数
+class A1
+{
+public:
+	void f1(){}
+private:
+	int _a;
+};
+
+//类中仅有成员函数
+class A2
+{
+public:
+	void f2(){}
+};
+
+//类中什么也没有（空类）
+class A3
+{};
+
+/*
+
+struct Student
+{
+	void SetStudentInfo(const char* name, const char* gender, int age)
+	{
+		strcpy(_name, name);
+		strcpy(_gender, gender);
+		_age = age;
+	}
+	void PrintStudentInfo()
+	{
+		cout << _name << " " << _gender << " " << _age << endl;
+	}
+
+	char _name[20];
+	char _gender[3];
+	int _age;
+};
+
+int main()
+{
+	Student s;
+	s.SetStudentInfo("Peter", "男", 18);
+	s.PrintStudentInfo();
+	return 0;
+}
+
+
+/*
 //指针空值
 void TestPtr()
 {
