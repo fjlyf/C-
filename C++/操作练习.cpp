@@ -18,6 +18,7 @@ public:
 private:
 	int _a;
 };
+
 int main()
 {
 	A* p = NULL;
