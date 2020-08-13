@@ -55,7 +55,6 @@ int main()
 	d2.Display();
 	return 0;
 }
-
 /*
 //类与对象
 class Person
