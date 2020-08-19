@@ -27,6 +27,7 @@ int Jump_Floor1(int n)
 	}
 	return c;
 }
+
 int main()
 {
 	int n = 0;
