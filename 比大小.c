@@ -15,7 +15,6 @@ int main()
 		printf("max=b%d\n", b);
 	return 0;
 }
-
 //判断任意两个数的大小
 //方法一
 int main()
@@ -34,7 +33,6 @@ int main()
 		printf("%d\n", b);
 	return 0;
 }
-
 //方法二
 int main()
 {
