@@ -12,7 +12,6 @@ int main()
 	}
 	return 0;
 }
-
 //方法二优化
 int main()
 {
@@ -24,7 +23,6 @@ int main()
 	}
 	return 0;
 }
-
 //方法三
 int main()
 {
