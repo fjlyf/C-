@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 //游戏开始界面
 void menu()
 {
